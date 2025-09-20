@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket  = "example-dev-tfstate-bucket"
     region  = "ap-northeast-1"
-    key     = "dev.tfstate"
+    key     = "common_domain.tfstate"
     profile = "terraform-user"
   }
   required_providers {
