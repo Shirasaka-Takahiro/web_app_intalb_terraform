@@ -1,9 +1,9 @@
 ##Default Bucket
 resource "aws_s3_bucket" "default_bucket" {
-  bucket = "${var.general_config["project"]}-${var.general_config["env"]}-${var.bucket_role}-bucket"
+  bucket = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-artifact-bucket"
 
   tags = {
-    Name = "${var.general_config["project"]}-${var.general_config["env"]}-${var.bucket_role}-bucket"
+    Name = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-artifact-bucket"
   }
 }
 

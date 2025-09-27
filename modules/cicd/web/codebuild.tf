@@ -15,6 +15,16 @@ resource "aws_codebuild_project" "project" {
     privileged_mode             = true
 
     environment_variable {
+      name  = "REGION"
+      value = var.region
+    }
+
+    environment_variable {
+      name  = "AWS_ACCOUNT_ID"
+      value = data.aws_caller_identity.self.account_id
+    }
+
+    environment_variable {
       name  = "project"
       value = var.general_config["project"]
     }

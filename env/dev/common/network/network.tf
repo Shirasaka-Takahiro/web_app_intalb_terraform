@@ -8,5 +8,5 @@ module "network" {
   public_subnets     = var.public_subnets
   private_subnets    = var.private_subnets
   dmz_subnets        = var.dmz_subnets
-  dmz_subnet_ids     = module.network.dmz_subnet_ids
+  public_subnet_ids  = module.network.public_subnet_ids
 }

@@ -1,6 +1,7 @@
 variable "general_config" {
   type = map(any)
 }
+variable "region" {}
 variable "execution_role_arn" {}
 variable "ecr_repository_url" {}
 variable "buildspec_path" {}
@@ -13,7 +14,6 @@ variable "blue_tg_name" {}
 variable "green_tg_name" {}
 variable "alb_https_listener_arn" {}
 variable "pipeline_type" {}
-variable "bucket_name" {}
 variable "branch_name" {}
 variable "full_repositroy_id" {}
 variable "task_definition_template_path" {}

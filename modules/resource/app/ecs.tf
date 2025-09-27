@@ -6,7 +6,7 @@ resource "aws_ecs_task_definition" "task" {
       project            = var.general_config["project"],
       env                = var.general_config["env"],
       service            = var.general_config["service"],
-      ecr_repository_url = aws_ecr_repository.default.arn
+      ecr_repository_url = aws_ecr_repository.default.repository_url
     }
   )
   cpu                = var.fargate_cpu

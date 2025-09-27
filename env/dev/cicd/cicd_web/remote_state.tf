@@ -23,7 +23,8 @@ data "terraform_remote_state" "resource_web" {
 
   config = {
     bucket = "example-dev-tfstate-bucket"
-    key    = "resource_web.tfstate"
+    #key    = "resource_web.tfstate"
+    key    = "dev.tfstate"
     region = "ap-northeast-1"
   }
 }

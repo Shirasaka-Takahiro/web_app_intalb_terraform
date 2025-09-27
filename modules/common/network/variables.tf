@@ -6,4 +6,5 @@ variable "availability_zones" {}
 variable "public_subnets" {}
 variable "private_subnets" {}
 variable "dmz_subnets" {}
-variable "dmz_subnet_ids" {}
+#variable "dmz_subnet_ids" {}
+variable "public_subnet_ids" {}

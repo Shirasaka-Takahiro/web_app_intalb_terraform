@@ -20,7 +20,7 @@ resource "aws_iam_role" "codedeploy" {
 ##CodeDeploy IAM Role Policy
 resource "aws_iam_role_policy" "codedeploy" {
   name   = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-codedeploy-policy"
-  role   = aws_iam_role.codebuild.name
+  role   = aws_iam_role.codedeploy.name
   policy = file("${path.module}/iam_json/codedeploy_deploy_policy.json")
 }
 
@@ -33,6 +33,6 @@ resource "aws_iam_role" "codepipeline" {
 ##CodePipeline IAM Role Policy
 resource "aws_iam_role_policy" "codepipeline" {
   name   = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-codepipeline-policy"
-  role   = aws_iam_role.codebuild.name
+  role   = aws_iam_role.codepipeline.name
   policy = file("${path.module}/iam_json/codepipeline_pipeline_policy.json")
 }

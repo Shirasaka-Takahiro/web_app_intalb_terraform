@@ -18,12 +18,13 @@ module "web" {
   cert_alb_arn      = data.terraform_remote_state.common_domain.outputs.cert_alb_arn
 
   #ECS
-  ecs_cluster_id        = data.terraform_remote_state.common_network.outputs.ecs_cluster_id
-  fargate_cpu           = "256"
-  fargate_memory        = "512"
-  dmz_subnet_ids        = data.terraform_remote_state.common_network.outputs.dmz_subnet_ids
-  desired_count         = 1
+  ecs_cluster_id = data.terraform_remote_state.common_network.outputs.ecs_cluster_id
+  fargate_cpu    = "256"
+  fargate_memory = "512"
+  dmz_subnet_ids = data.terraform_remote_state.common_network.outputs.dmz_subnet_ids
+  desired_count  = 1
   deployment_controller = "CODE_DEPLOY"
+  #deployment_controller = "ECS"
 
   #Route53
   domain_name = var.domain_name

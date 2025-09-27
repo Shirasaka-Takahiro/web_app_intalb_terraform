@@ -14,10 +14,18 @@ output "alb_https_listener" {
   value = aws_lb_listener.alb_https_listener
 }
 
+output "ecr" {
+  value = aws_ecr_repository.default
+}
+
 output "ecs_service" {
   value = aws_ecs_service.service
 }
 
 output "ecs_role" {
   value = aws_iam_role.ecs
+}
+
+output "security_group_internal" {
+  value = aws_security_group.internal
 }

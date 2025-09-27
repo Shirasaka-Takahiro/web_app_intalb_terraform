@@ -1,11 +1,11 @@
 ##Codepipeline
 resource "aws_codepipeline" "pipeline" {
-  name     = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-pipeline"
-  role_arn = aws_iam_role.codepipeline.arn
+  name          = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-pipeline"
+  role_arn      = aws_iam_role.codepipeline.arn
   pipeline_type = var.pipeline_type
 
   artifact_store {
-    location = aws_s3_bucket.default_bucket.name
+    location = aws_s3_bucket.default_bucket.bucket
     type     = "S3"
   }
 
@@ -60,12 +60,11 @@ resource "aws_codepipeline" "pipeline" {
 
       configuration = {
         ApplicationName                = aws_codedeploy_app.default.name
-        DeploymentGroupName            = aws_codedeploy_deployment_group.default.name
+        DeploymentGroupName            = aws_codedeploy_deployment_group.default.deployment_group_name
         TaskDefinitionTemplateArtifact = "build_output"
         TaskDefinitionTemplatePath     = var.task_definition_template_path
         AppSpecTemplateArtifact        = "build_output"
         AppSpecTemplatePath            = var.app_spec_template_path
-        Image1ArtifactName             = "build_output"
       }
     }
   }
