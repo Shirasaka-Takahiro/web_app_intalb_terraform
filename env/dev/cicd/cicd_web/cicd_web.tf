@@ -31,6 +31,6 @@ module "cicd_web" {
   pipeline_type = "V2"
   branch_name                        = var.branch_name
   full_repositroy_id                 = var.full_repositroy_id
-  task_definition_template_path      = "./taskdef/taskdef.json"
-  app_spec_template_path             = "./scripts/appspec.yml"
+  task_definition_template_path      = "taskdef.json"
+  app_spec_template_path             = "appspec.yml"
 }
