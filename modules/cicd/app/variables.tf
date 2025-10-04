@@ -1,0 +1,20 @@
+variable "general_config" {
+  type = map(any)
+}
+variable "region" {}
+variable "execution_role_arn" {}
+variable "ecr_repository_url" {}
+variable "buildspec_path" {}
+variable "vpc_id" {}
+variable "dmz_subnet_ids" {}
+variable "internal_sg_id" {}
+variable "ecs_cluster_name" {}
+variable "ecs_service_name" {}
+variable "blue_tg_name" {}
+variable "green_tg_name" {}
+variable "alb_https_listener_arn" {}
+variable "pipeline_type" {}
+variable "branch_name" {}
+variable "full_repositroy_id" {}
+variable "task_definition_template_path" {}
+variable "app_spec_template_path" {}
