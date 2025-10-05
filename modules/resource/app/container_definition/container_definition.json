@@ -1,7 +1,7 @@
 [
     {
-        "name": "${project}-${env}-${service}-container",
-        "image": "${ecr_repository_url}",
+        "name": "${project}-${env}-${service}-web-container",
+        "image": "${ecr_repository_app_web_url}",
         "essential": true,
         "portMappings": [
             {
@@ -16,6 +16,37 @@
               "awslogs-stream-prefix": "${service}",
               "awslogs-group": "/ecs/${project}/${env}/${service}"
             }
-          }
+          },
+        "mountPoints": [
+            {
+              "sourceVolume": "php-fpm-socket",
+              "containerPath": "/var/run/"
+            }
+        ]
+    },
+    {
+        "name": "${project}-${env}-${service}-container",
+        "image": "${ecr_repository_url}",
+        "essential": true,
+        "portMappings": [
+            {
+                "containerPort": 9000,
+                "hostPort": 9000
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+              "awslogs-region": "ap-northeast-1",
+              "awslogs-stream-prefix": "${service}",
+              "awslogs-group": "/ecs/${project}/${env}/${service}"
+            }
+          },
+        "mountPoints": [
+            {
+              "sourceVolume": "php-fpm-socket",
+              "containerPath": "/var/run/"
+            }
+        ]
     }
 ]

@@ -18,12 +18,12 @@ data "terraform_remote_state" "common_domain" {
   }
 }
 
-data "terraform_remote_state" "resource_web" {
+data "terraform_remote_state" "resource_app" {
   backend = "s3"
 
   config = {
     bucket = "example-dev-tfstate-bucket"
-    key    = "cicd_web.tfstate"
+    key    = "resource_app.tfstate"
     region = "ap-northeast-1"
   }
 }

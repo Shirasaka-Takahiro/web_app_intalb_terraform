@@ -4,6 +4,7 @@ variable "general_config" {
 variable "region" {}
 variable "execution_role_arn" {}
 variable "ecr_repository_url" {}
+variable "ecr_repository_app_web_url" {}
 variable "buildspec_path" {}
 variable "vpc_id" {}
 variable "dmz_subnet_ids" {}

@@ -50,6 +50,11 @@ resource "aws_codebuild_project" "project" {
     }
 
     environment_variable {
+      name  = "ECR_REPOSITORY_APP_WEB_URL"
+      value = var.ecr_repository_app_web_url
+    }
+
+    environment_variable {
       name  = "ECR_REPOSITORY_URL"
       value = var.ecr_repository_url
     }

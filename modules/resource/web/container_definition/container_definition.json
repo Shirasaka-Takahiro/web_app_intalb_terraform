@@ -16,6 +16,7 @@
               "awslogs-stream-prefix": "${service}",
               "awslogs-group": "/ecs/${project}/${env}/${service}"
             }
-          }
+          },
+        "mountPoints": []
     }
 ]

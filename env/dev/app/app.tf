@@ -23,8 +23,8 @@ module "app" {
   fargate_memory = "512"
   dmz_subnet_ids = data.terraform_remote_state.common_network.outputs.dmz_subnet_ids
   desired_count  = 1
-  #deployment_controller = "CODE_DEPLOY"
-  deployment_controller = "ECS"
+  deployment_controller = "CODE_DEPLOY"
+  #deployment_controller = "ECS"
 
   #Route53
   domain_name = var.domain_name

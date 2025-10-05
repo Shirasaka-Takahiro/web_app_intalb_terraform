@@ -18,6 +18,10 @@ output "ecr" {
   value = aws_ecr_repository.default
 }
 
+output "ecr_app_web" {
+  value = aws_ecr_repository.app-web
+}
+
 output "ecs_service" {
   value = aws_ecs_service.service
 }

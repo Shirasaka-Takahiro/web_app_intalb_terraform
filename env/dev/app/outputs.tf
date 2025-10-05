@@ -6,6 +6,10 @@ output "ecr_repository_url" {
   value = module.app.ecr.repository_url
 }
 
+output "ecr_repository_app_web_url" {
+  value = module.app.ecr_app_web.repository_url
+}
+
 output "security_group_internal_id" {
   value = module.app.security_group_internal.id
 }

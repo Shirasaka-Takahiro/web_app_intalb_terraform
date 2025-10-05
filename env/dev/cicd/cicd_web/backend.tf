@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket  = "example-dev-tfstate-bucket"
     region  = "ap-northeast-1"
-    key     = "cicd_web.tfstate"
+    key     = "cicd_web2.tfstate"
     profile = "terraform-user"
   }
   required_providers {

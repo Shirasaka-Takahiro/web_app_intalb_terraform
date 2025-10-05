@@ -7,6 +7,7 @@ resource "aws_ecs_task_definition" "task" {
       env                = var.general_config["env"],
       service            = var.general_config["service"],
       ecr_repository_url = aws_ecr_repository.default.repository_url
+      ecr_repository_app_web_url = aws_ecr_repository.app-web.repository_url
     }
   )
   cpu                = var.fargate_cpu
@@ -18,6 +19,10 @@ resource "aws_ecs_task_definition" "task" {
   requires_compatibilities = [
     "FARGATE"
   ]
+
+  volume {
+    name = "php-fpm-socket"
+  }
 
   /*
   lifecycle {
@@ -39,7 +44,7 @@ resource "aws_ecs_service" "service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.blue_tg.arn
-    container_name   = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-container"
+    container_name   = "${var.general_config["project"]}-${var.general_config["env"]}-${var.general_config["service"]}-web-container"
     container_port   = "80"
   }
 
